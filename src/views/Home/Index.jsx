@@ -19,7 +19,9 @@ const Home = () => {
 
   useEffect(() => {
     if (userInformation) {
-      setSocket(io(process.env.REACT_APP_BACKEND_SOCKET_URL));
+      setSocket(
+        io.connect(process.env.REACT_APP_BACKEND_SOCKET_URL, { secure: true })
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInformation]);
