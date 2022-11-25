@@ -19,6 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     if (userInformation) {
+      console.log(process.env.REACT_APP_BACKEND_SOCKET_URL);
       setSocket(
         io.connect(process.env.REACT_APP_BACKEND_SOCKET_URL, { secure: true })
       );
