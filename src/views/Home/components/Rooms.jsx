@@ -8,6 +8,7 @@ const Rooms = () => {
   function joinToRoom(data) {
     if (context.currentRoom.room_id !== data.room_id) {
       context.joinToRoom(data);
+      context.setMessagesListWithRoomHistory(data.room_id);
     }
   }
 

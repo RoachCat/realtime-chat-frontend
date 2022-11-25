@@ -39,6 +39,58 @@
 }
 
 .name-input__submit-button {
+    position: relative;
     width: 80px;
     margin: 7px 0px;
+    cursor: pointer;
+}
+
+.name-input__button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 7px 0px;
+}
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    padding: 5px 0px;
+    color: #737373;
+    top: 11%;
+    right: 2%;
+}
+
+.spinner__icon {
+    height: 16px;
+    width: 16px;
+    color: #5a5a5a;
+    position: relative;
+    display: inline-block;
+    border: 3px solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }

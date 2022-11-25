@@ -38,16 +38,18 @@ const Home = () => {
     defineMessagesByRoom(rooms);
     joinToRoom(rooms[0]);
     listenToMessages();
-    setMessagesListWithRoomHistory(rooms[0]);
+    setMessagesListWithRoomHistory(rooms[0].room_id);
   }
 
-  async function setMessagesListWithRoomHistory(defaultRoom) {
-    const messagesHistory = await getMessagesHistory(defaultRoom.room_id);
-    setMessagesList((prevMessagesList) => ({
-      ...prevMessagesList,
-      [defaultRoom.room_id]: messagesHistory,
-    }));
-    messagesListRef.current[defaultRoom.room_id] = messagesHistory;
+  async function setMessagesListWithRoomHistory(roomId) {
+    if (!messagesList[roomId] || !messagesList[roomId].length) {
+      const messagesHistory = await getMessagesHistory(roomId);
+      setMessagesList((prevMessagesList) => ({
+        ...prevMessagesList,
+        [roomId]: messagesHistory,
+      }));
+      messagesListRef.current[roomId] = messagesHistory;
+    }
   }
 
   async function getRooms() {
@@ -113,7 +115,7 @@ const Home = () => {
           room_id: roomId,
         })
     ).then((response) => response.json());
-    return response.history;
+    return response;
   }
 
   return (
@@ -122,6 +124,7 @@ const Home = () => {
         socket,
         userInformation,
         messagesList,
+        setMessagesListWithRoomHistory,
         currentRoom,
         sendMessage,
         joinToRoom,

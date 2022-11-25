@@ -3,8 +3,10 @@ import "../../../assets/styles/UserRegistration.css";
 
 const UserRegistration = ({ setUserInformation }) => {
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function registerNewUser() {
+    setLoading(true);
     const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user`, {
       method: "POST",
       headers: {
@@ -15,6 +17,7 @@ const UserRegistration = ({ setUserInformation }) => {
       .then((response) => response.json())
       .catch((error) => console.log(error));
     setUserInformation(response);
+    setLoading(false);
   }
 
   return (
@@ -34,15 +37,26 @@ const UserRegistration = ({ setUserInformation }) => {
             className="name-input__input"
             autoFocus
           />
-          <button
-            className="name-input__submit-button"
-            onClick={() => registerNewUser()}
-            onKeyDown={(event) =>
-              event.key === "Enter" ? registerNewUser() : ""
-            }
-          >
-            Submit
-          </button>
+          <div className="name-input__button-container">
+            {loading ? (
+              <div className="spinner-container">
+                <p>Loading chat rooms</p>
+                <div className="spinner">
+                  <div className="spinner__icon"></div>
+                </div>
+              </div>
+            ) : (
+              <button
+                className="name-input__submit-button"
+                onClick={() => registerNewUser()}
+                onKeyDown={(event) =>
+                  event.key === "Enter" ? registerNewUser() : ""
+                }
+              >
+                <span>Submit</span>
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>
