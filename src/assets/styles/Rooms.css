@@ -1,0 +1,36 @@
+.rooms {
+    border-right: 1px solid black;
+}
+
+@media (max-width: 750px) {
+    .main-content {
+        display: grid;
+        grid-template-columns: 100%;
+        width: 100%;
+    }
+    .rooms {
+        display: none;
+    }
+}
+
+.rooms-list__item {
+    padding: 5px 0px;
+    cursor: pointer;
+}
+
+.rooms-list__item:hover {
+    cursor: pointer;
+}
+
+.rooms-list__item div {
+    margin-left: 5px;
+}
+
+.rooms-list__item:hover:not(.rooms-list__item--active) {
+    background-color: #efefef;
+}
+
+.rooms-list__item--active {
+    background-color: #cecece;
+    cursor: initial !important;
+}

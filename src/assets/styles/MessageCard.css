@@ -1,0 +1,35 @@
+.message-card {
+    display: block;
+    position: relative;
+    margin-left: 5px;
+    padding: 5px 0px;
+}
+
+.message-card--other .message-card__sender {
+    color: blue;
+}
+
+.message-card:hover {
+    background-color: #efefef;
+}
+
+.message-card:hover .message-card__time {
+    visibility: visible;
+}
+
+.message-card__sender {
+    font-weight: bold;
+}
+
+.message-card__time {
+    position: absolute;
+    right: 5px;
+    visibility: hidden;
+}
+
+.new-user-container {
+    margin-left: 5px;
+    padding: 7px 0px;
+    color: #767676;
+    font-size: 13px;
+}

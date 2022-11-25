@@ -1,0 +1,44 @@
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.registration-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 300px;
+    border: 1px solid #737272;
+    border-radius: 20px;
+}
+
+.name-container {
+    margin: 15px 0px;
+}
+
+.name-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-input__input {
+    outline: 0;
+}
+.name-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-input__submit-button {
+    width: 80px;
+    margin: 7px 0px;
+}
